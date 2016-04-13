@@ -366,9 +366,9 @@ func paramType(x:KhronosXmlDelegate.paramTuple) -> String
     if type == "GLvoid" {type = "Void"}
 
     if type == "struct _cl_context" {
-        type = "COpaquePointer"
+        type = "OpaquePointer"
     } else if type == "struct _cl_event" {
-        type = "COpaquePointer"
+        type = "OpaquePointer"
     } else if x.ptr == "const!*?" {
         type = "UnsafePointer<\(type)>"
     } else if x.ptr == "!*?" {

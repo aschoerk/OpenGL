@@ -51,7 +51,7 @@ public typealias GLintptrARB = Int
 public typealias GLsizeiptrARB = Int
 public typealias GLint64EXT = Int64
 public typealias GLuint64EXT = UInt64
-public typealias GLsync = COpaquePointer
+public typealias GLsync = OpaquePointer
 public typealias GLhalfNV = UInt16
 public typealias GLvdpauSurfaceNV = Int
 
@@ -83,7 +83,7 @@ private func buildError(info: CommandInfo) -> String {
     var rems = ""
     var exts = ""
     for support in info.support {
-        let short = support[support.startIndex.advancedBy(1)..<support.endIndex]
+        let short = support[support.startIndex.advanced(by: 1)..<support.endIndex]
         if support[support.startIndex] == "+" {
             if adds.characters.count > 0 {
                 adds += ", "
@@ -131,7 +131,7 @@ func getAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
     import Darwin
 
     let openGLframework = "/System/Library/Frameworks/OpenGL.framework/Versions/Current/OpenGL"
-    var dlopenHandle = UnsafeMutablePointer<Void>()
+    var dlopenHandle : UnsafeMutablePointer<Void> = nil
 
     func lookupAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
         if dlopenHandle == nil {

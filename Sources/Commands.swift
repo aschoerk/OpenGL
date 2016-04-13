@@ -1266,9 +1266,9 @@ var glCreateShaderProgramvEXT_P:@convention(c)(GLenum, GLsizei, UnsafeMutablePoi
 public func glCreateStatesNV(n:GLsizei, _ states:UnsafeMutablePointer<GLuint>) {glCreateStatesNV_P(n, states)}
 public func glCreateStatesNV(n n:GLsizei, states:UnsafeMutablePointer<GLuint>) {glCreateStatesNV_P(n, states)}
 var glCreateStatesNV_P:@convention(c)(GLsizei, UnsafeMutablePointer<GLuint>) -> Void = glCreateStatesNV_L
-public func glCreateSyncFromCLeventARB(context:COpaquePointer, _ event:COpaquePointer, _ flags:GLbitfield) -> GLsync {return glCreateSyncFromCLeventARB_P(context, event, flags)}
-public func glCreateSyncFromCLeventARB(context context:COpaquePointer, event:COpaquePointer, flags:GLbitfield) -> GLsync {return glCreateSyncFromCLeventARB_P(context, event, flags)}
-var glCreateSyncFromCLeventARB_P:@convention(c)(COpaquePointer, COpaquePointer, GLbitfield) -> GLsync = glCreateSyncFromCLeventARB_L
+public func glCreateSyncFromCLeventARB(context:OpaquePointer, _ event:OpaquePointer, _ flags:GLbitfield) -> GLsync {return glCreateSyncFromCLeventARB_P(context, event, flags)}
+public func glCreateSyncFromCLeventARB(context context:OpaquePointer, event:OpaquePointer, flags:GLbitfield) -> GLsync {return glCreateSyncFromCLeventARB_P(context, event, flags)}
+var glCreateSyncFromCLeventARB_P:@convention(c)(OpaquePointer, OpaquePointer, GLbitfield) -> GLsync = glCreateSyncFromCLeventARB_L
 public func glCreateTextures(target:GLenum, _ n:GLsizei, _ textures:UnsafeMutablePointer<GLuint>) {glCreateTextures_P(target, n, textures)}
 public func glCreateTextures(target target:GLenum, n:GLsizei, textures:UnsafeMutablePointer<GLuint>) {glCreateTextures_P(target, n, textures)}
 var glCreateTextures_P:@convention(c)(GLenum, GLsizei, UnsafeMutablePointer<GLuint>) -> Void = glCreateTextures_L

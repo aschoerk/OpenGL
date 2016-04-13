@@ -2062,7 +2062,7 @@ func glCreateStatesNV_L(n:GLsizei, _ states:UnsafeMutablePointer<GLuint>) {
     glCreateStatesNV_P = unsafeBitCast(getAddress(CommandInfo("glCreateStatesNV", [S254])), to: glCreateStatesNV_P.dynamicType)
     glCreateStatesNV_P(n, states)
 }
-func glCreateSyncFromCLeventARB_L(context:COpaquePointer, _ event:COpaquePointer, _ flags:GLbitfield) -> GLsync {
+func glCreateSyncFromCLeventARB_L(context:OpaquePointer, _ event:OpaquePointer, _ flags:GLbitfield) -> GLsync {
     glCreateSyncFromCLeventARB_P = unsafeBitCast(getAddress(CommandInfo("glCreateSyncFromCLeventARB", [S59])), to: glCreateSyncFromCLeventARB_P.dynamicType)
     return glCreateSyncFromCLeventARB_P(context, event, flags)
 }
