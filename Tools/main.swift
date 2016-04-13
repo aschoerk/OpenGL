@@ -432,7 +432,8 @@ func writeCommands(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
         count = 0
         for t in types {
             body += t.0
-            if ++count < params.count {
+            count += 1
+            if count < params.count {
                 body += ", "
             }
         }
@@ -445,7 +446,8 @@ func writeCommands(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
                 outstream.write("_ ")
             }
             outstream.write("\(t.0):\(t.1)")
-            if ++count < params.count {
+            count += 1
+            if count < params.count {
                 outstream.write(", ")
             }
         }
@@ -459,7 +461,8 @@ func writeCommands(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
                     outstream.write("\(t.0) ")
                 }
                 outstream.write("\(t.0):\(t.1)")
-                if ++count < params.count {
+                count += 1
+                if count < params.count {
                     outstream.write(", ")
                 }
             }
@@ -470,7 +473,8 @@ func writeCommands(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
         count = 0
         for t in types {
             outstream.write(t.1)
-            if ++count < params.count {
+            count += 1
+            if count < params.count {
                 outstream.write(", ")
             }
         }
@@ -523,7 +527,8 @@ func writeLoaders(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
                 outstream.write("_ ")
             }
             outstream.write("\(t.0):\(t.1)")
-            if ++count < params.count {
+            count += 1
+            if count < params.count {
                 outstream.write(", ")
             }
         }
@@ -550,12 +555,13 @@ func writeLoaders(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
         count = 0
         for n in strnums {
             outstream.write("S\(n)")
-            if ++count < strnums.count {
+            count += 1
+            if count < strnums.count {
                 outstream.write(", ")
             }
         }
 
-        outstream.write("])), \(cmd)_P.dynamicType)\n")
+        outstream.write("])), to: \(cmd)_P.dynamicType)\n")
 
         if returns == "Void" {
             outstream.write("    \(cmd)_P(")
@@ -565,13 +571,14 @@ func writeLoaders(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
         count = 0
         for t in types {
             outstream.write(t.0)
-            if ++count < params.count {
+            count += 1
+            if count < params.count {
                 outstream.write(", ")
             }
         }
         outstream.write(")\n}\n")
 
-        index++
+        index += 1
     }
 }
 
@@ -603,7 +610,7 @@ func tidyDelegate(delegate:KhronosXmlDelegate)
                 delegate.commandParams[cmd]![count] =
                     (name:"input",type:x.type,ptr:x.ptr,group:x.group,len:x.len)
             }
-            count++
+            count += 1
         }
     }
 
@@ -637,8 +644,9 @@ func tidyDelegate(delegate:KhronosXmlDelegate)
         let valInt = strtoll(value,nil,0)
         var valStr = String(valInt, radix:16, uppercase:true)
         var addZeros = 8 - valStr.characters.count
-        while addZeros-- != 0 {
+        while addZeros != 0 {
             valStr = "0" + valStr
+            addZeros -= 1
         }
         delegate.values[key] = "0x\(valStr)"
     }
