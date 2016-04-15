@@ -442,9 +442,7 @@ func writeCommands(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
         outstream.write("public func \(cmd)(")
         count = 0
         for t in types {
-            if count > 0 {
-                outstream.write("_ ")
-            }
+            outstream.write("_ ")
             outstream.write("\(t.0):\(t.1)")
             count += 1
             if count < params.count {
@@ -457,9 +455,6 @@ func writeCommands(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
             outstream.write("public func \(cmd)(")
             count = 0
             for t in types {
-                if count == 0 {
-                    outstream.write("\(t.0) ")
-                }
                 outstream.write("\(t.0):\(t.1)")
                 count += 1
                 if count < params.count {
@@ -538,7 +533,7 @@ func writeLoaders(outstream:NSOutputStream, _ delegate:KhronosXmlDelegate)
             outstream.write(") -> \(returns) {\n")
         }
 
-        outstream.write("    \(cmd)_P = unsafeBitCast(getAddress(")
+        outstream.write("    \(cmd)_P = unsafeBitCast(getAddress(info: ")
 
         var strnums = Array<Int>()
         if let vers = delegate.commandVersions[cmd] {
