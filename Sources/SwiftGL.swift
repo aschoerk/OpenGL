@@ -160,13 +160,13 @@ func getAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
         if glXGetProcAddress == nil {
             let fp = dlsym(dlopenHandle, "glXGetProcAddressARB")
             if fp != nil {
-                glXGetProcAddress = unsafeBitCast(fp, glXGetProcAddress.dynamicType)
+                glXGetProcAddress = unsafeBitCast(fp, to: glXGetProcAddress.dynamicType)
             }
         }
         if glXGetProcAddress == nil {
             let fp = dlsym(dlopenHandle, "glXGetProcAddress")
             if fp != nil {
-                glXGetProcAddress = unsafeBitCast(fp, glXGetProcAddress.dynamicType)
+                glXGetProcAddress = unsafeBitCast(fp, to: glXGetProcAddress.dynamicType)
             }
         }
         if glXGetProcAddress == nil {
