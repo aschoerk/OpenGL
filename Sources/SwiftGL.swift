@@ -78,7 +78,7 @@ class CommandInfo : CustomStringConvertible {
 }
 
 @noreturn
-private func buildError(info: CommandInfo) -> String {
+private func buildError(_ info: CommandInfo) -> String {
     var adds = ""
     var rems = ""
     var exts = ""
@@ -120,7 +120,7 @@ private func buildError(info: CommandInfo) -> String {
 func getAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
     let fp = lookupAddress(info)
     if (fp == nil) {buildError(info)}
-    return fp
+    return fp!
 }
 
 // Platform specific sections below.
@@ -131,9 +131,9 @@ func getAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
     import Darwin
 
     let openGLframework = "/System/Library/Frameworks/OpenGL.framework/Versions/Current/OpenGL"
-    var dlopenHandle : UnsafeMutablePointer<Void> = nil
+    var dlopenHandle : UnsafeMutablePointer<Void>? = nil
 
-    func lookupAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
+    func lookupAddress(_ info: CommandInfo) -> UnsafeMutablePointer<Void>? {
         if dlopenHandle == nil {
             dlopenHandle = dlopen(openGLframework, RTLD_LAZY)
         }
@@ -147,10 +147,10 @@ func getAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
 
     import Glibc
 
-    var dlopenHandle = UnsafeMutablePointer<Void>()
+    var dlopenHandle : UnsafeMutablePointer<Void>? = nil
     var glXGetProcAddress:(@convention(c) (UnsafePointer<GLchar>) -> UnsafeMutablePointer<Void>)? = nil
     
-    func lookupAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
+    func lookupAddress(_ info: CommandInfo) -> UnsafeMutablePointer<Void>? {
         if dlopenHandle == nil {
             dlopenHandle = dlopen(nil, RTLD_LAZY | RTLD_LOCAL)
         }
@@ -177,7 +177,7 @@ func getAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
     
 #else
 
-    func lookupAddress(info: commandInfo) -> UnsafeMutablePointer<Void> {
+    func lookupAddress(_ info: commandInfo) -> UnsafeMutablePointer<Void> {
         fatalError("Unsupported OS")
     }
 
