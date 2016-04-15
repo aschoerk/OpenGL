@@ -1530,11 +1530,11 @@ func glColorPointerEXT_L(size:GLint, _ type:GLenum, _ stride:GLsizei, _ count:GL
     glColorPointerEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glColorPointerEXT", [S226])), to: glColorPointerEXT_P.dynamicType)
     glColorPointerEXT_P(size, type, stride, count, pointer)
 }
-func glColorPointerListIBM_L(size:GLint, _ type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!, _ ptrstride:GLint) {
+func glColorPointerListIBM_L(size:GLint, _ type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!, _ ptrstride:GLint) {
     glColorPointerListIBM_P = unsafeBitCast(getAddress(info: CommandInfo("glColorPointerListIBM", [S236])), to: glColorPointerListIBM_P.dynamicType)
     glColorPointerListIBM_P(size, type, stride, pointer, ptrstride)
 }
-func glColorPointervINTEL_L(size:GLint, _ type:GLenum, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!) {
+func glColorPointervINTEL_L(size:GLint, _ type:GLenum, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!) {
     glColorPointervINTEL_P = unsafeBitCast(getAddress(info: CommandInfo("glColorPointervINTEL", [S242])), to: glColorPointervINTEL_P.dynamicType)
     glColorPointervINTEL_P(size, type, pointer)
 }
@@ -2054,7 +2054,7 @@ func glCreateShaderProgramv_L(type:GLenum, _ count:GLsizei, _ strings:UnsafePoin
     glCreateShaderProgramv_P = unsafeBitCast(getAddress(info: CommandInfo("glCreateShaderProgramv", [S13, S21, S104])), to: glCreateShaderProgramv_P.dynamicType)
     return glCreateShaderProgramv_P(type, count, strings)
 }
-func glCreateShaderProgramvEXT_L(type:GLenum, _ count:GLsizei, _ strings:UnsafeMutablePointer<UnsafePointer<GLchar>!>!) -> GLuint {
+func glCreateShaderProgramvEXT_L(type:GLenum, _ count:GLsizei, _ strings:UnsafeMutablePointer<UnsafePointer<GLchar>?>!) -> GLuint {
     glCreateShaderProgramvEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glCreateShaderProgramvEXT", [S206])), to: glCreateShaderProgramvEXT_P.dynamicType)
     return glCreateShaderProgramvEXT_P(type, count, strings)
 }
@@ -2754,7 +2754,7 @@ func glEdgeFlagPointerEXT_L(stride:GLsizei, _ count:GLsizei, _ pointer:UnsafePoi
     glEdgeFlagPointerEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glEdgeFlagPointerEXT", [S226])), to: glEdgeFlagPointerEXT_P.dynamicType)
     glEdgeFlagPointerEXT_P(stride, count, pointer)
 }
-func glEdgeFlagPointerListIBM_L(stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<GLboolean>!>!, _ ptrstride:GLint) {
+func glEdgeFlagPointerListIBM_L(stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<GLboolean>?>!, _ ptrstride:GLint) {
     glEdgeFlagPointerListIBM_P = unsafeBitCast(getAddress(info: CommandInfo("glEdgeFlagPointerListIBM", [S236])), to: glEdgeFlagPointerListIBM_P.dynamicType)
     glEdgeFlagPointerListIBM_P(stride, pointer, ptrstride)
 }
@@ -2990,7 +2990,7 @@ func glExecuteProgramNV_L(target:GLenum, _ id:GLuint, _ params:UnsafePointer<GLf
     glExecuteProgramNV_P = unsafeBitCast(getAddress(info: CommandInfo("glExecuteProgramNV", [S303])), to: glExecuteProgramNV_P.dynamicType)
     glExecuteProgramNV_P(target, id, params)
 }
-func glExtGetBufferPointervQCOM_L(target:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glExtGetBufferPointervQCOM_L(target:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glExtGetBufferPointervQCOM_P = unsafeBitCast(getAddress(info: CommandInfo("glExtGetBufferPointervQCOM", [S340])), to: glExtGetBufferPointervQCOM_P.dynamicType)
     glExtGetBufferPointervQCOM_P(target, params)
 }
@@ -3142,7 +3142,7 @@ func glFogCoordPointerEXT_L(type:GLenum, _ stride:GLsizei, _ pointer:UnsafePoint
     glFogCoordPointerEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glFogCoordPointerEXT", [S176])), to: glFogCoordPointerEXT_P.dynamicType)
     glFogCoordPointerEXT_P(type, stride, pointer)
 }
-func glFogCoordPointerListIBM_L(type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!, _ ptrstride:GLint) {
+func glFogCoordPointerListIBM_L(type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!, _ ptrstride:GLint) {
     glFogCoordPointerListIBM_P = unsafeBitCast(getAddress(info: CommandInfo("glFogCoordPointerListIBM", [S236])), to: glFogCoordPointerListIBM_P.dynamicType)
     glFogCoordPointerListIBM_P(type, stride, pointer, ptrstride)
 }
@@ -3698,15 +3698,15 @@ func glGetBufferParameterui64vNV_L(target:GLenum, _ pname:GLenum, _ params:Unsaf
     glGetBufferParameterui64vNV_P = unsafeBitCast(getAddress(info: CommandInfo("glGetBufferParameterui64vNV", [S294])), to: glGetBufferParameterui64vNV_P.dynamicType)
     glGetBufferParameterui64vNV_P(target, pname, params)
 }
-func glGetBufferPointerv_L(target:GLenum, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetBufferPointerv_L(target:GLenum, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetBufferPointerv_P = unsafeBitCast(getAddress(info: CommandInfo("glGetBufferPointerv", [S5, S20])), to: glGetBufferPointerv_P.dynamicType)
     glGetBufferPointerv_P(target, pname, params)
 }
-func glGetBufferPointervARB_L(target:GLenum, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetBufferPointervARB_L(target:GLenum, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetBufferPointervARB_P = unsafeBitCast(getAddress(info: CommandInfo("glGetBufferPointervARB", [S133])), to: glGetBufferPointervARB_P.dynamicType)
     glGetBufferPointervARB_P(target, pname, params)
 }
-func glGetBufferPointervOES_L(target:GLenum, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetBufferPointervOES_L(target:GLenum, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetBufferPointervOES_P = unsafeBitCast(getAddress(info: CommandInfo("glGetBufferPointervOES", [S320])), to: glGetBufferPointervOES_P.dynamicType)
     glGetBufferPointervOES_P(target, pname, params)
 }
@@ -4326,11 +4326,11 @@ func glGetNamedBufferParameterui64vNV_L(buffer:GLuint, _ pname:GLenum, _ params:
     glGetNamedBufferParameterui64vNV_P = unsafeBitCast(getAddress(info: CommandInfo("glGetNamedBufferParameterui64vNV", [S294])), to: glGetNamedBufferParameterui64vNV_P.dynamicType)
     glGetNamedBufferParameterui64vNV_P(buffer, pname, params)
 }
-func glGetNamedBufferPointerv_L(buffer:GLuint, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetNamedBufferPointerv_L(buffer:GLuint, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetNamedBufferPointerv_P = unsafeBitCast(getAddress(info: CommandInfo("glGetNamedBufferPointerv", [S17, S69])), to: glGetNamedBufferPointerv_P.dynamicType)
     glGetNamedBufferPointerv_P(buffer, pname, params)
 }
-func glGetNamedBufferPointervEXT_L(buffer:GLuint, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetNamedBufferPointervEXT_L(buffer:GLuint, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetNamedBufferPointervEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetNamedBufferPointervEXT", [S167])), to: glGetNamedBufferPointervEXT_P.dynamicType)
     glGetNamedBufferPointervEXT_P(buffer, pname, params)
 }
@@ -4574,23 +4574,23 @@ func glGetPixelTransformParameterivEXT_L(target:GLenum, _ pname:GLenum, _ params
     glGetPixelTransformParameterivEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetPixelTransformParameterivEXT", [S197])), to: glGetPixelTransformParameterivEXT_P.dynamicType)
     glGetPixelTransformParameterivEXT_P(target, pname, params)
 }
-func glGetPointerIndexedvEXT_L(target:GLenum, _ index:GLuint, _ data:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetPointerIndexedvEXT_L(target:GLenum, _ index:GLuint, _ data:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetPointerIndexedvEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetPointerIndexedvEXT", [S167])), to: glGetPointerIndexedvEXT_P.dynamicType)
     glGetPointerIndexedvEXT_P(target, index, data)
 }
-func glGetPointeri_vEXT_L(pname:GLenum, _ index:GLuint, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetPointeri_vEXT_L(pname:GLenum, _ index:GLuint, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetPointeri_vEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetPointeri_vEXT", [S167])), to: glGetPointeri_vEXT_P.dynamicType)
     glGetPointeri_vEXT_P(pname, index, params)
 }
-func glGetPointerv_L(pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetPointerv_L(pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetPointerv_P = unsafeBitCast(getAddress(info: CommandInfo("glGetPointerv", [S1, S23, S15, S15, S18, S22, S245])), to: glGetPointerv_P.dynamicType)
     glGetPointerv_P(pname, params)
 }
-func glGetPointervEXT_L(pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetPointervEXT_L(pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetPointervEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetPointervEXT", [S226])), to: glGetPointervEXT_P.dynamicType)
     glGetPointervEXT_P(pname, params)
 }
-func glGetPointervKHR_L(pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetPointervKHR_L(pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetPointervKHR_P = unsafeBitCast(getAddress(info: CommandInfo("glGetPointervKHR", [S245])), to: glGetPointervKHR_P.dynamicType)
     glGetPointervKHR_P(pname, params)
 }
@@ -5002,7 +5002,7 @@ func glGetTexParameterIuivOES_L(target:GLenum, _ pname:GLenum, _ params:UnsafeMu
     glGetTexParameterIuivOES_P = unsafeBitCast(getAddress(info: CommandInfo("glGetTexParameterIuivOES", [S329])), to: glGetTexParameterIuivOES_P.dynamicType)
     glGetTexParameterIuivOES_P(target, pname, params)
 }
-func glGetTexParameterPointervAPPLE_L(target:GLenum, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetTexParameterPointervAPPLE_L(target:GLenum, _ pname:GLenum, _ params:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetTexParameterPointervAPPLE_P = unsafeBitCast(getAddress(info: CommandInfo("glGetTexParameterPointervAPPLE", [S48])), to: glGetTexParameterPointervAPPLE_P.dynamicType)
     glGetTexParameterPointervAPPLE_P(target, pname, params)
 }
@@ -5222,7 +5222,7 @@ func glGetVariantIntegervEXT_L(id:GLuint, _ value:GLenum, _ data:UnsafeMutablePo
     glGetVariantIntegervEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetVariantIntegervEXT", [S228])), to: glGetVariantIntegervEXT_P.dynamicType)
     glGetVariantIntegervEXT_P(id, value, data)
 }
-func glGetVariantPointervEXT_L(id:GLuint, _ value:GLenum, _ data:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetVariantPointervEXT_L(id:GLuint, _ value:GLenum, _ data:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetVariantPointervEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetVariantPointervEXT", [S228])), to: glGetVariantPointervEXT_P.dynamicType)
     glGetVariantPointervEXT_P(id, value, data)
 }
@@ -5246,11 +5246,11 @@ func glGetVertexArrayIntegervEXT_L(vaobj:GLuint, _ pname:GLenum, _ param:UnsafeM
     glGetVertexArrayIntegervEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetVertexArrayIntegervEXT", [S167])), to: glGetVertexArrayIntegervEXT_P.dynamicType)
     glGetVertexArrayIntegervEXT_P(vaobj, pname, param)
 }
-func glGetVertexArrayPointeri_vEXT_L(vaobj:GLuint, _ index:GLuint, _ pname:GLenum, _ param:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetVertexArrayPointeri_vEXT_L(vaobj:GLuint, _ index:GLuint, _ pname:GLenum, _ param:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetVertexArrayPointeri_vEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetVertexArrayPointeri_vEXT", [S167])), to: glGetVertexArrayPointeri_vEXT_P.dynamicType)
     glGetVertexArrayPointeri_vEXT_P(vaobj, index, pname, param)
 }
-func glGetVertexArrayPointervEXT_L(vaobj:GLuint, _ pname:GLenum, _ param:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetVertexArrayPointervEXT_L(vaobj:GLuint, _ pname:GLenum, _ param:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetVertexArrayPointervEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glGetVertexArrayPointervEXT", [S167])), to: glGetVertexArrayPointervEXT_P.dynamicType)
     glGetVertexArrayPointervEXT_P(vaobj, pname, param)
 }
@@ -5302,15 +5302,15 @@ func glGetVertexAttribLui64vNV_L(index:GLuint, _ pname:GLenum, _ params:UnsafeMu
     glGetVertexAttribLui64vNV_P = unsafeBitCast(getAddress(info: CommandInfo("glGetVertexAttribLui64vNV", [S301])), to: glGetVertexAttribLui64vNV_P.dynamicType)
     glGetVertexAttribLui64vNV_P(index, pname, params)
 }
-func glGetVertexAttribPointerv_L(index:GLuint, _ pname:GLenum, _ pointer:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetVertexAttribPointerv_L(index:GLuint, _ pname:GLenum, _ pointer:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetVertexAttribPointerv_P = unsafeBitCast(getAddress(info: CommandInfo("glGetVertexAttribPointerv", [S6, S19])), to: glGetVertexAttribPointerv_P.dynamicType)
     glGetVertexAttribPointerv_P(index, pname, pointer)
 }
-func glGetVertexAttribPointervARB_L(index:GLuint, _ pname:GLenum, _ pointer:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetVertexAttribPointervARB_L(index:GLuint, _ pname:GLenum, _ pointer:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetVertexAttribPointervARB_P = unsafeBitCast(getAddress(info: CommandInfo("glGetVertexAttribPointervARB", [S134, S135])), to: glGetVertexAttribPointervARB_P.dynamicType)
     glGetVertexAttribPointervARB_P(index, pname, pointer)
 }
-func glGetVertexAttribPointervNV_L(index:GLuint, _ pname:GLenum, _ pointer:UnsafeMutablePointer<UnsafeMutablePointer<Void>!>!) {
+func glGetVertexAttribPointervNV_L(index:GLuint, _ pname:GLenum, _ pointer:UnsafeMutablePointer<UnsafeMutablePointer<Void>?>!) {
     glGetVertexAttribPointervNV_P = unsafeBitCast(getAddress(info: CommandInfo("glGetVertexAttribPointervNV", [S303])), to: glGetVertexAttribPointervNV_P.dynamicType)
     glGetVertexAttribPointervNV_P(index, pname, pointer)
 }
@@ -5650,7 +5650,7 @@ func glIndexPointerEXT_L(type:GLenum, _ stride:GLsizei, _ count:GLsizei, _ point
     glIndexPointerEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glIndexPointerEXT", [S226])), to: glIndexPointerEXT_P.dynamicType)
     glIndexPointerEXT_P(type, stride, count, pointer)
 }
-func glIndexPointerListIBM_L(type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!, _ ptrstride:GLint) {
+func glIndexPointerListIBM_L(type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!, _ ptrstride:GLint) {
     glIndexPointerListIBM_P = unsafeBitCast(getAddress(info: CommandInfo("glIndexPointerListIBM", [S236])), to: glIndexPointerListIBM_P.dynamicType)
     glIndexPointerListIBM_P(type, stride, pointer, ptrstride)
 }
@@ -6074,7 +6074,7 @@ func glListBase_L(base:GLuint) {
     glListBase_P = unsafeBitCast(getAddress(info: CommandInfo("glListBase", [S0, S23])), to: glListBase_P.dynamicType)
     glListBase_P(base)
 }
-func glListDrawCommandsStatesClientNV_L(list:GLuint, _ segment:GLuint, _ indirects:UnsafeMutablePointer<UnsafePointer<Void>!>!, _ sizes:UnsafePointer<GLsizei>!, _ states:UnsafePointer<GLuint>!, _ fbos:UnsafePointer<GLuint>!, _ count:GLuint) {
+func glListDrawCommandsStatesClientNV_L(list:GLuint, _ segment:GLuint, _ indirects:UnsafeMutablePointer<UnsafePointer<Void>?>!, _ sizes:UnsafePointer<GLsizei>!, _ states:UnsafePointer<GLuint>!, _ fbos:UnsafePointer<GLuint>!, _ count:GLuint) {
     glListDrawCommandsStatesClientNV_P = unsafeBitCast(getAddress(info: CommandInfo("glListDrawCommandsStatesClientNV", [S254])), to: glListDrawCommandsStatesClientNV_P.dynamicType)
     glListDrawCommandsStatesClientNV_P(list, segment, indirects, sizes, states, fbos, count)
 }
@@ -7406,11 +7406,11 @@ func glNormalPointerEXT_L(type:GLenum, _ stride:GLsizei, _ count:GLsizei, _ poin
     glNormalPointerEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glNormalPointerEXT", [S226])), to: glNormalPointerEXT_P.dynamicType)
     glNormalPointerEXT_P(type, stride, count, pointer)
 }
-func glNormalPointerListIBM_L(type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!, _ ptrstride:GLint) {
+func glNormalPointerListIBM_L(type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!, _ ptrstride:GLint) {
     glNormalPointerListIBM_P = unsafeBitCast(getAddress(info: CommandInfo("glNormalPointerListIBM", [S236])), to: glNormalPointerListIBM_P.dynamicType)
     glNormalPointerListIBM_P(type, stride, pointer, ptrstride)
 }
-func glNormalPointervINTEL_L(type:GLenum, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!) {
+func glNormalPointervINTEL_L(type:GLenum, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!) {
     glNormalPointervINTEL_P = unsafeBitCast(getAddress(info: CommandInfo("glNormalPointervINTEL", [S242])), to: glNormalPointervINTEL_P.dynamicType)
     glNormalPointervINTEL_P(type, pointer)
 }
@@ -8950,7 +8950,7 @@ func glRenderbufferStorageOES_L(target:GLenum, _ internalformat:GLenum, _ width:
     glRenderbufferStorageOES_P = unsafeBitCast(getAddress(info: CommandInfo("glRenderbufferStorageOES", [S317])), to: glRenderbufferStorageOES_P.dynamicType)
     glRenderbufferStorageOES_P(target, internalformat, width, height)
 }
-func glReplacementCodePointerSUN_L(type:GLenum, _ stride:GLsizei, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!) {
+func glReplacementCodePointerSUN_L(type:GLenum, _ stride:GLsizei, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!) {
     glReplacementCodePointerSUN_P = unsafeBitCast(getAddress(info: CommandInfo("glReplacementCodePointerSUN", [S368])), to: glReplacementCodePointerSUN_P.dynamicType)
     glReplacementCodePointerSUN_P(type, stride, pointer)
 }
@@ -9382,7 +9382,7 @@ func glSecondaryColorPointerEXT_L(size:GLint, _ type:GLenum, _ stride:GLsizei, _
     glSecondaryColorPointerEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glSecondaryColorPointerEXT", [S205])), to: glSecondaryColorPointerEXT_P.dynamicType)
     glSecondaryColorPointerEXT_P(size, type, stride, pointer)
 }
-func glSecondaryColorPointerListIBM_L(size:GLint, _ type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!, _ ptrstride:GLint) {
+func glSecondaryColorPointerListIBM_L(size:GLint, _ type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!, _ ptrstride:GLint) {
     glSecondaryColorPointerListIBM_P = unsafeBitCast(getAddress(info: CommandInfo("glSecondaryColorPointerListIBM", [S236])), to: glSecondaryColorPointerListIBM_P.dynamicType)
     glSecondaryColorPointerListIBM_P(size, type, stride, pointer, ptrstride)
 }
@@ -9450,7 +9450,7 @@ func glShaderSource_L(shader:GLuint, _ count:GLsizei, _ string:UnsafePointer<Uns
     glShaderSource_P = unsafeBitCast(getAddress(info: CommandInfo("glShaderSource", [S6, S19])), to: glShaderSource_P.dynamicType)
     glShaderSource_P(shader, count, string, length)
 }
-func glShaderSourceARB_L(shaderObj:GLhandleARB, _ count:GLsizei, _ string:UnsafeMutablePointer<UnsafePointer<GLcharARB>!>!, _ length:UnsafePointer<GLint>!) {
+func glShaderSourceARB_L(shaderObj:GLhandleARB, _ count:GLsizei, _ string:UnsafeMutablePointer<UnsafePointer<GLcharARB>?>!, _ length:UnsafePointer<GLint>!) {
     glShaderSourceARB_P = unsafeBitCast(getAddress(info: CommandInfo("glShaderSourceARB", [S107])), to: glShaderSourceARB_P.dynamicType)
     glShaderSourceARB_P(shaderObj, count, string, length)
 }
@@ -10014,11 +10014,11 @@ func glTexCoordPointerEXT_L(size:GLint, _ type:GLenum, _ stride:GLsizei, _ count
     glTexCoordPointerEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glTexCoordPointerEXT", [S226])), to: glTexCoordPointerEXT_P.dynamicType)
     glTexCoordPointerEXT_P(size, type, stride, count, pointer)
 }
-func glTexCoordPointerListIBM_L(size:GLint, _ type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!, _ ptrstride:GLint) {
+func glTexCoordPointerListIBM_L(size:GLint, _ type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!, _ ptrstride:GLint) {
     glTexCoordPointerListIBM_P = unsafeBitCast(getAddress(info: CommandInfo("glTexCoordPointerListIBM", [S236])), to: glTexCoordPointerListIBM_P.dynamicType)
     glTexCoordPointerListIBM_P(size, type, stride, pointer, ptrstride)
 }
-func glTexCoordPointervINTEL_L(size:GLint, _ type:GLenum, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!) {
+func glTexCoordPointervINTEL_L(size:GLint, _ type:GLenum, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!) {
     glTexCoordPointervINTEL_P = unsafeBitCast(getAddress(info: CommandInfo("glTexCoordPointervINTEL", [S242])), to: glTexCoordPointervINTEL_P.dynamicType)
     glTexCoordPointervINTEL_P(size, type, pointer)
 }
@@ -12438,11 +12438,11 @@ func glVertexPointerEXT_L(size:GLint, _ type:GLenum, _ stride:GLsizei, _ count:G
     glVertexPointerEXT_P = unsafeBitCast(getAddress(info: CommandInfo("glVertexPointerEXT", [S226])), to: glVertexPointerEXT_P.dynamicType)
     glVertexPointerEXT_P(size, type, stride, count, pointer)
 }
-func glVertexPointerListIBM_L(size:GLint, _ type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!, _ ptrstride:GLint) {
+func glVertexPointerListIBM_L(size:GLint, _ type:GLenum, _ stride:GLint, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!, _ ptrstride:GLint) {
     glVertexPointerListIBM_P = unsafeBitCast(getAddress(info: CommandInfo("glVertexPointerListIBM", [S236])), to: glVertexPointerListIBM_P.dynamicType)
     glVertexPointerListIBM_P(size, type, stride, pointer, ptrstride)
 }
-func glVertexPointervINTEL_L(size:GLint, _ type:GLenum, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>!>!) {
+func glVertexPointervINTEL_L(size:GLint, _ type:GLenum, _ pointer:UnsafeMutablePointer<UnsafePointer<Void>?>!) {
     glVertexPointervINTEL_P = unsafeBitCast(getAddress(info: CommandInfo("glVertexPointervINTEL", [S242])), to: glVertexPointervINTEL_P.dynamicType)
     glVertexPointervINTEL_P(size, type, pointer)
 }
