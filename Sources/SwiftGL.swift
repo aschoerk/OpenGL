@@ -83,7 +83,7 @@ private func buildError(_ info: CommandInfo) -> String {
     var rems = ""
     var exts = ""
     for support in info.support {
-        let short = support[support.startIndex.advanced(by: 1)..<support.endIndex]
+        let short = support[support.index(after: support.startIndex)..<support.endIndex]
         if support[support.startIndex] == "+" {
             if adds.characters.count > 0 {
                 adds += ", "
