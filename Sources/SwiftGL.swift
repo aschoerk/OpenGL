@@ -77,8 +77,7 @@ class CommandInfo : CustomStringConvertible {
     }
 }
 
-@noreturn
-private func buildError(_ info: CommandInfo) -> String {
+private func buildError(_ info: CommandInfo) -> Never {
     var adds = ""
     var rems = ""
     var exts = ""
@@ -117,7 +116,7 @@ private func buildError(_ info: CommandInfo) -> String {
     fatalError(s)
 }
 
-func getAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
+func getAddress(info: CommandInfo) -> UnsafeMutableRawPointer {
     let fp = lookupAddress(info)
     if (fp == nil) {buildError(info)}
     return fp!
@@ -131,9 +130,9 @@ func getAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
     import Darwin
 
     let openGLframework = "/System/Library/Frameworks/OpenGL.framework/Versions/Current/OpenGL"
-    var dlopenHandle : UnsafeMutablePointer<Void>? = nil
+    var dlopenHandle : UnsafeMutableRawPointer? = nil
 
-    func lookupAddress(_ info: CommandInfo) -> UnsafeMutablePointer<Void>? {
+    func lookupAddress(_ info: CommandInfo) -> UnsafeMutableRawPointer? {
         if dlopenHandle == nil {
             dlopenHandle = dlopen(openGLframework, RTLD_LAZY)
         }
@@ -160,13 +159,13 @@ func getAddress(info: CommandInfo) -> UnsafeMutablePointer<Void> {
         if glXGetProcAddress == nil {
             let fp = dlsym(dlopenHandle, "glXGetProcAddressARB")
             if fp != nil {
-                glXGetProcAddress = unsafeBitCast(fp, to: glXGetProcAddress.dynamicType)
+                glXGetProcAddress = unsafeBitCast(fp, to: type(of: glXGetProcAddress))
             }
         }
         if glXGetProcAddress == nil {
             let fp = dlsym(dlopenHandle, "glXGetProcAddress")
             if fp != nil {
-                glXGetProcAddress = unsafeBitCast(fp, to: glXGetProcAddress.dynamicType)
+                glXGetProcAddress = unsafeBitCast(fp, to: type(of: glXGetProcAddress))
             }
         }
         if glXGetProcAddress == nil {
